@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Post, Avatar } from 'components';
+import { SideColumn } from './SideColumn';
 import { FaRegImage, FaRegSmile, FaRegChartBar } from 'react-icons/fa';
 import { MdGif } from 'react-icons/md';
 import './Home.css';
@@ -47,7 +48,7 @@ export const Home: React.FC<Props> = () => {
   };
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-between">
       <PostContainer>
         <div className="sticky px-3 h-12 flex flex-column border-gray-700 border-b">
           <div className="flex flex-row items-center">
@@ -95,6 +96,7 @@ export const Home: React.FC<Props> = () => {
         <div style={{ backgroundColor: 'rgb(37, 51, 65)', height: 10 }}></div>
         <>{renderPosts()}</>
       </PostContainer>
+      <SideColumn />
     </div>
   );
 };
