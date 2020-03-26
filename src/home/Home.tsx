@@ -48,56 +48,58 @@ export const Home: React.FC<Props> = () => {
   };
 
   return (
-    <div className="flex justify-between">
-      <PostContainer>
-        <div className="sticky px-3 h-12 flex flex-column border-gray-700 border-b">
-          <div className="flex flex-row items-center">
-            <h2 className="text-white font-extrabold">
-              <span>Home</span>
-            </h2>
-          </div>
-        </div>
-        {/* Create thread */}
-        <div className="flex flex-row pt-3 px-6 mb-3 m-2">
-          <div className="mr-4 flex-shrink-0">
-            <Avatar />
-          </div>
-          <div className="w-full pt-2 flex flex-col">
-            <div className="w-full py-2">
-              <input
-                className="text-white border-transparent bg-transparent w-full focus:outline-none"
-                placeholder="What's happening?"
-              />
-            </div>
-            <div className="flex flex-row justify-between items-end">
-              <div className="text-white flex flex-row items-end">
-                <div className="icon-wrapper">
-                  <FaRegImage />
-                </div>
-                <div className="icon-wrapper">
-                  <MdGif />
-                </div>
-                <div className="icon-wrapper">
-                  <FaRegChartBar />
-                </div>
-                <div className="icon-wrapper">
-                  <FaRegSmile />
-                </div>
-              </div>
-              <div>
-                <button className="text-white font-bold rounded-full bg-blue-500 p-2 px-4">
-                  Tweet
-                </button>
-              </div>
+    <main className="flex justify-start flex-grow">
+      <div className="flex justify-between" style={{ width: 990 }}>
+        <PostContainer>
+          <div className="sticky px-3 h-12 flex flex-column border-gray-700 border-b">
+            <div className="flex flex-row items-center">
+              <h2 className="text-white font-extrabold">
+                <span>Home</span>
+              </h2>
             </div>
           </div>
-        </div>
-        {/* Create thread */}
-        <div style={{ backgroundColor: 'rgb(37, 51, 65)', height: 10 }}></div>
-        <>{renderPosts()}</>
-      </PostContainer>
-      <SideColumn />
-    </div>
+          {/* Create thread */}
+          <div className="flex flex-row pt-3 px-6 mb-3 m-2">
+            <div className="mr-4 flex-shrink-0">
+              <Avatar />
+            </div>
+            <div className="w-full pt-2 flex flex-col">
+              <div className="w-full py-2">
+                <input
+                  className="text-white border-transparent bg-transparent w-full focus:outline-none"
+                  placeholder="What's happening?"
+                />
+              </div>
+              <div className="flex flex-row justify-between items-end">
+                <div className="text-white flex flex-row items-end">
+                  <div className="icon-wrapper">
+                    <FaRegImage />
+                  </div>
+                  <div className="icon-wrapper">
+                    <MdGif />
+                  </div>
+                  <div className="icon-wrapper">
+                    <FaRegChartBar />
+                  </div>
+                  <div className="icon-wrapper">
+                    <FaRegSmile />
+                  </div>
+                </div>
+                <div>
+                  <button className="text-white font-bold rounded-full bg-blue-500 p-2 px-4">
+                    Tweet
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* Create thread */}
+          <div style={{ backgroundColor: 'rgb(37, 51, 65)', height: 10 }}></div>
+          <>{renderPosts()}</>
+        </PostContainer>
+        <SideColumn />
+      </div>
+    </main>
   );
 };
 

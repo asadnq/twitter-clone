@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { formatCount } from 'utils';
+import { FiSearch } from 'react-icons/fi';
 
 const Container = styled.div`
   width: 350px;
@@ -39,11 +40,42 @@ const SecondaryTextWrapper = styled.div`
   font-size: 15px;
 `;
 
-export const SideColumn = () => {
+interface SearcFormProps {
+  onChange?: () => void;
+}
 
+const SearchForm: React.FC<SearcFormProps> = (props) => {
+  return (
+    <form className="flex flex-column flex-grow flex-1 py-2">
+      <div
+        className="flex flex-1 flex-row rounded-full"
+        style={{ backgroundColor: 'rgb(37, 51, 65)' }}
+      >
+        <div className="flex items-center flex-1">
+          <div className="flex flex-row w-full">
+            <div className="flex justify-center items-stretch p-3">
+              <FiSearch size={24} color="#fff" className="pl-2" />
+            </div>
+            <div className="flex justify-center items-stretch">
+              <input
+                placeholder="Search Twitter"
+                className="p-3 bg-transparent"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  );
+};
+
+export const SideColumn = () => {
   return (
     <Container>
       <div style={{ height: '100%' }}>
+        <div className="flex mb-2" style={{ height: 53 }}>
+          <SearchForm />
+        </div>
         <TrendingsContainer>
           <TrendingHeadingContainer>
             <div className="flex justify-between flex-col">
