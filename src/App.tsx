@@ -1,9 +1,9 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import './App.css';
-import { Home } from './home';
 import { IconContext } from 'react-icons';
-import { SideMenu } from './side-menu/SideMenu';
+
+import Routes from './routes';
 
 import { theme } from './themes';
 
@@ -16,10 +16,7 @@ const App = () => {
           size: '24px',
           className: 'icon-default',
         }}>
-        <div className="flex">
-          <SideMenu />
-          <Home />
-        </div>
+        <Routes />
       </IconContext.Provider>
     </ThemeProvider>
   );

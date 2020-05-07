@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Post, Avatar } from 'components';
+import { Flex } from 'components/common';
 import { SideColumn } from './SideColumn';
 import { FaRegImage, FaRegSmile, FaRegChartBar } from 'react-icons/fa';
 import { MdGif } from 'react-icons/md';
 import './Home.css';
+import SideMenu from 'side-menu/SideMenu';
 
 interface Props {}
 
@@ -100,6 +102,15 @@ export const Home: React.FC<Props> = () => {
         <SideColumn />
       </div>
     </main>
+  );
+};
+
+export default () => {
+  return (
+    <Flex>
+      <SideMenu />
+      <Home />
+    </Flex>
   );
 };
 
