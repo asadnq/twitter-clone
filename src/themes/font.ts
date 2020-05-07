@@ -26,6 +26,7 @@ export const fontSizes: any = [
 
 fontSizes.xs = SIZE.xs;
 fontSizes.sm = SIZE.sm;
+fontSizes.base = SIZE.base;
 fontSizes.lg = SIZE.lg;
 fontSizes.xl = SIZE.xl;
 fontSizes.xl2 = SIZE.xl2;
