@@ -55,6 +55,10 @@ export const Article: React.ComponentType<
   BoxProps & TypographyProps
 > = styled.article(typography, ...boxStyleUtils);
 
+export const H1: React.ComponentType<
+  BoxProps & TypographyProps
+> = styled.h1(typography, ...boxStyleUtils);
+
 export const Text: React.ComponentType<
   BoxProps & TypographyProps
 > = styled.span(typography, ...boxStyleUtils);
