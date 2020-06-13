@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import {
+  system,
+  compose,
   space,
   layout,
   border,
@@ -26,15 +28,21 @@ interface BoxProps
     LayoutProps,
     BorderProps,
     ColorProps,
-    PositionProps {}
+    PositionProps {
+  cursor?: string;
+  clickable?: boolean;
+}
 
-export const Box: React.ComponentType<BoxProps> = styled.div(
-  {
-    boxSizing: 'border-box',
-    minWidth: 0,
-  },
-  ...boxStyleUtils,
-);
+interface Clickable {
+  clickable?: boolean;
+}
+
+export const Box: React.ComponentType<BoxProps> = styled.div<Clickable>`
+  ${compose(...boxStyleUtils, system({ cusor: true }))}
+  boxSizing: 'border-box';
+  minwidth: 0;
+  cursor: ${({ clickable }) => (clickable ? 'pointer' : 'default')};
+`;
 
 export const Flex: React.ComponentType<
   BoxProps & FlexProps & FlexboxProps
@@ -47,17 +55,18 @@ export const Flex: React.ComponentType<
 );
 
 // somehow it won't work if only `ColorProps` assigned
-export const Spacer: React.ComponentType<SpaceProps & ColorProps> = styled.div(
-  space,
-);
+export const Spacer: React.ComponentType<
+  SpaceProps & ColorProps & TypographyProps
+> = styled.div(space, color, typography);
 
 export const Article: React.ComponentType<
   BoxProps & TypographyProps
 > = styled.article(typography, ...boxStyleUtils);
 
-export const H1: React.ComponentType<
-  BoxProps & TypographyProps
-> = styled.h1(typography, ...boxStyleUtils);
+export const H1: React.ComponentType<BoxProps & TypographyProps> = styled.h1(
+  typography,
+  ...boxStyleUtils,
+);
 
 export const Text: React.ComponentType<
   BoxProps & TypographyProps
