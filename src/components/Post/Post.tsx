@@ -2,7 +2,7 @@ import React from 'react';
 import { Avatar } from 'components';
 import { Box, Flex, Spacer, Text, Paragraph, Article } from 'components/common';
 import { FaRetweet, FaHeart, FaReply } from 'react-icons/fa';
-import { IconType } from 'react-icons';
+import { RiChat1Line, RiHeartLine } from 'react-icons/ri';
 
 interface Props {
   username: string;
@@ -13,7 +13,13 @@ interface Props {
 export const Post: React.FC<Props> = (props: Props) => {
   return (
     <Box width={[1]}>
-      <Box overflow="hidden" py={4} px={6} clickable>
+      <Box
+        overflow="hidden"
+        py={4}
+        px={6}
+        clickable
+        hoverBgColor={'rgba(25, 39, 52, .9)'}
+      >
         <Flex>
           <Flex mr={4} pt={1} flexShrink={0}>
             <Avatar />
@@ -51,13 +57,13 @@ interface PostActionBarProps {
 }
 
 export const PostActionBar: React.FC<PostActionBarProps> = (props) => {
-  const iconSize = 12;
+  const iconSize = 14;
 
   const postActions = [
     {
       id: 'action-reply',
       sequence: 0,
-      icon: <FaReply size={iconSize} color="inherit" />,
+      icon: <RiChat1Line size={iconSize} color="inherit" />,
       value: 24,
     },
     {
@@ -69,7 +75,7 @@ export const PostActionBar: React.FC<PostActionBarProps> = (props) => {
     {
       id: 'action-like',
       sequence: 2,
-      icon: <FaHeart size={iconSize} color="inherit" />,
+      icon: <RiHeartLine size={iconSize} color="inherit" />,
       value: 71,
     },
   ];

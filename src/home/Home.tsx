@@ -8,7 +8,7 @@ import { MdGif } from 'react-icons/md';
 import './Home.css';
 import SideMenu from 'side-menu/SideMenu';
 
-interface Props {}
+//interface Props {}
 
 interface User {
   username: string;
@@ -21,13 +21,13 @@ interface Post {
   user: User;
 }
 
-const POST_URI = 'http://localhost:3333/post';
+//const POST_URI = 'http://localhost:3333/post';
 
-export const Home: React.FC<Props> = () => {
+export const Home: React.FC = () => {
   const [posts, setPosts] = useState<Post[]>([]);
 
   useEffect(() => {
-    fetch(POST_URI)
+    /*fetch(POST_URI)
       .then((_) => _.json())
       .then((res) => {
         console.log('post', res);
@@ -36,7 +36,8 @@ export const Home: React.FC<Props> = () => {
       .catch((err) => {
         console.error(err);
         setPosts([]);
-      });
+        });*/
+    setPosts(postDummies);
   }, []);
 
   const renderPosts = () => {
@@ -105,14 +106,14 @@ export const Home: React.FC<Props> = () => {
   );
 };
 
-export default () => {
+export default function HomePage() {
   return (
     <Flex>
       <SideMenu />
       <Home />
     </Flex>
   );
-};
+}
 
 const PostContainer = styled.div.attrs(() => ({
   className: 'flex flex-col',
@@ -127,3 +128,22 @@ const PostContainer = styled.div.attrs(() => ({
     border-bottom: 0px;
   }
 `;
+
+const postDummies: Array<Post> = [
+  {
+    id: 1,
+    description: 'Well, How did i get here??',
+    user: {
+      username: 'asadnq',
+      display_name: 'Naufal Asad',
+    },
+  },
+  {
+    id: 2,
+    description: 'Yesterday i woke up sucking a lemon',
+    user: {
+      username: 'dummyaccount',
+      display_name: 'i am developer',
+    },
+  },
+];

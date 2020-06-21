@@ -28,21 +28,33 @@ interface BoxProps
     LayoutProps,
     BorderProps,
     ColorProps,
-    PositionProps {
+    PositionProps,
+    Clickable,
+    Hoverable {
   cursor?: string;
-  clickable?: boolean;
 }
 
 interface Clickable {
   clickable?: boolean;
 }
 
-export const Box: React.ComponentType<BoxProps> = styled.div<Clickable>`
+export const Box: React.ComponentType<BoxProps> = styled.div<
+  Clickable & Hoverable
+>`
   ${compose(...boxStyleUtils, system({ cusor: true }))}
-  boxSizing: 'border-box';
-  minwidth: 0;
+  box-sizing: 'border-box';
+  min-width: 0;
   cursor: ${({ clickable }) => (clickable ? 'pointer' : 'default')};
+  transition: 0.3s;
+  :hover {
+    background-color: ${({ hoverBgColor }) =>
+      hoverBgColor ? hoverBgColor : 'inherit'};
+  }
 `;
+
+interface Hoverable {
+  hoverBgColor?: string;
+}
 
 export const Flex: React.ComponentType<
   BoxProps & FlexProps & FlexboxProps
